@@ -1,0 +1,16 @@
+1.-Descargar la Version estable de Angular:
+	https://angularjs.org/
+	Esto es para instalar ANGULAR en el proyecto.(se coloca en la carpeta de js->lib)
+2.-También se descarga BOOTSTRAP
+	https://getbootstrap.com/docs/4.0/getting-started/download/
+	Son estilos CSS()solo seleccionamos la carpeta css
+	De la carpeta que descargamos de CSS solo utilizaremos:
+		a) bootstrap.css.map
+		b) bootstrap.min.css
+
+Para el index
+1.-Se tiene que incluir los archivos descargados los estilos CSS y Angular
+Para saber que esta pagina será controlada por ANGULAR, en la etiqueta de <html ng-app> se debe de colocar la directiva "ng-app".
+
+FILTROS
+Documentacion desde : https://docs.angularjs.org/guide/filter#using-filters-in-view-templates
