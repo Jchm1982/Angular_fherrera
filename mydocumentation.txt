@@ -14,3 +14,64 @@ Para saber que esta pagina será controlada por ANGULAR, en la etiqueta de <html
 
 FILTROS
 Documentacion desde : https://docs.angularjs.org/guide/filter#using-filters-in-view-templates
+
+ng-model
+Permite enlazar a Variables aunque no se encuentren definidas
+Para enlazar en el input(para este ejemplo) ng-model="nombre" se asigna la variable que edita esa.
+		<p>
+			Su nombre: {{ nombre }}
+			<br>
+			<input type="text" ng-model="nombre" class="form-control" placeholder="Ingrese su nombre">
+		</p>
+
+**********************
+Dentro de la carpeta de JS se creara el archivo "maestro" app.js. Este archivo tendra las directivas o modulo principal de la aplicación.
+
+Esto se hace de la siguiente forma:
+var.app = angular.module('NombreDeMiAplicación [universidadApp]',[Aqui se manda un arreglo de argumentos]) (Argumentos:Son dependencias que nuestra aplicación pudiera necesitar, si se especifica una Angular buscara esta otra dependencia)
+
+Este nombre "universidadApp" debe de estar asociado a nuestra aplicación, en la pagina principal en este caso <html ng-app="universidadApp"> es keysensitive
+
+Dentro del archivo app.js
+Hay q crear los controladores
+Despùes de la primera instruccion se realiza el controlador, ejemplo:
+
+app.controller('Nomre del controlador "profesorCtrl"', function(){
+
+	Colocaremos una propiedad a nuestro controlador profesor
+	this.profesor(propiedad) = profesorData (objeto):
+
+});
+
+(objeto)
+var profesorData = {
+	nombre:"Juan Carlos Hernandez",
+	bio:"LLorem ipsum dolor sit amet consectetur adipisicing elit. Omnis voluptatem, enim minima nostrum saepe eum aliquid",
+	edad: 38,
+	foto: "img/juancarlos.jpg"
+}
+	
+	*controladores:Son los encargados de manejar una parte de la página o la totalidad de la misma, se recomienda que esten bien encapsulados(en este caso este conrtrolador estara relacionado con todas las funciones relacionadas con el profesor)
+Ya que se haya completado la configuración del archivo hay que relaacionarlo al index.
+
+ASOCIAR EL CONTROLADOR A LA PAGINA
+En el div de la clase contendor se crea la directiva ng-controller="Es el mismo controlador profesroCtrl"
+Todas las variables, propiedades y funciones que se crean dentro de ese controlador
+
+Para utilizar las VARIABLES debes de tener {{ profesorCtrl }}, como es muy largo podemos colocar un alias al controldor profe.profesor.nombre
+
+*PARA EVITAR ERRORES DE CARAGAR IAMGENES HAY QUE COLOCAR EL ng-src
+
+***************  $scope ****************
+El SCOPE es como una variable global, que está fuerta del controlador es aun más Grande.
+Esto se hace para que las propiedades sean del scope principal, y se hace de la siguiente manera:
+app.controller('Nombre del controlador "profesorCtrl"', function( $scope ){
+
+	Colocaremos una propiedad a nuestro controlador profesor
+	$scope.profesor(propiedad) = profesorData (objeto);
+	$scope.editando = {};
+
+});
+
+*************   ng-click   ***********
+Con esta directiva se llama a una función de Angular
