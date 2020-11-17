@@ -24,7 +24,7 @@ Para enlazar en el input(para este ejemplo) ng-model="nombre" se asigna la varia
 			<input type="text" ng-model="nombre" class="form-control" placeholder="Ingrese su nombre">
 		</p>
 
-**********************
+****************************************
 Dentro de la carpeta de JS se creara el archivo "maestro" app.js. Este archivo tendra las directivas o modulo principal de la aplicación.
 
 Esto se hace de la siguiente forma:
@@ -50,7 +50,7 @@ var profesorData = {
 	edad: 38,
 	foto: "img/juancarlos.jpg"
 }
-	
+
 	*controladores:Son los encargados de manejar una parte de la página o la totalidad de la misma, se recomienda que esten bien encapsulados(en este caso este conrtrolador estara relacionado con todas las funciones relacionadas con el profesor)
 Ya que se haya completado la configuración del archivo hay que relaacionarlo al index.
 
@@ -62,7 +62,7 @@ Para utilizar las VARIABLES debes de tener {{ profesorCtrl }}, como es muy largo
 
 *PARA EVITAR ERRORES DE CARAGAR IAMGENES HAY QUE COLOCAR EL ng-src
 
-***************  $scope ****************
+				***************  $scope ****************
 El SCOPE es como una variable global, que está fuerta del controlador es aun más Grande.
 Esto se hace para que las propiedades sean del scope principal, y se hace de la siguiente manera:
 app.controller('Nombre del controlador "profesorCtrl"', function( $scope ){
@@ -73,5 +73,92 @@ app.controller('Nombre del controlador "profesorCtrl"', function( $scope ){
 
 });
 
-*************   ng-click   ***********
+		*************   ng-click   ***********
 Con esta directiva se llama a una función de Angular
+
+
+		************* ng-hide --- ng-show *************
+Para esto se debe de crear una variableque nos controle cuando se quiera mostrar y cuando no, esto se hace dentro del controlador, se asigna con el $scope.mostrarCaja. En el index y lo colocamos en la seccion que queremos ocultar, <div class="row" ng-show="mostrarCaja">
+
+
+
+************************  ENCAPSULAR LAS FUNCIONES  ********************************
+(function(){
+	var app = angular.module('universidadApp',[]);
+	app.controller('listadoCtrl',['$scope',function($scope){
+
+	}]);
+
+})();
+--Es para que esten protegidas las funciones.
+***********************************************************************************+
+
+		************* ng-repeat *************
+Se puede utilizar para datos demasiado Grandes. Se utiliza en listas ordenadas de la siguiente forma:
+
+Ejemplo de forma normal:
+<ul>
+    <li>Fernando</li>
+    <li>Melisa</li>
+    <li>Juan Carlos</li>
+</ul>
+
+Utilizamos el ng-repeat de la siguiente forma:
+<ul>
+    <li ng-repeat="nombre in listado">
+    	{{ nombre }}
+    </li>
+</ul>
+
+	*Se declara la variable nombre dentro del ng-repeat, in listado(este objeto es el dataset[desde el ctrl])
+
+Ejemplo de un Arreglo más elaborado, el controlador se llama $scope.listadoProfesores
+
+Creamos una tabla sin ng-repeat:
+
+			<table class="table table-striped">
+	                <tr>
+	                    <th>Nombre</th>
+	                    <th>Edad</th>
+	                    <th>Clase</th>
+	                </tr>
+	                <tr>
+	                    <td>Fernando</td>
+	                    <td>20</td>
+	                    <td>ICE</td>
+	                </tr>
+            </table>
+
+Vamos a crear que esta tabla se llene con el ng-repeat:
+(En este caso lo que se va a areptir son los <td> se hará en el <tr>):
+
+<table class="table table-striped">
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Clase</th>
+        </tr>
+        <tr ng-repeat="profesor in listadoProfesores.profesores">
+            <td>{{ profesor.nombre}}</td>
+            <td>{{ profesor.edad}}</td>
+            <td>{{ profesor.clase}}</td>
+        </tr>
+    </table>
+
+El ng-repeat no es necesario que se inicialice en una clase o en un archivo separado, ejemplo tabla de multiplicar:
+
+Normal:
+<ul>
+	<li>
+		2 X 2 = 4
+	</li>
+</ul>
+
+CON ng-repeat:
+
+<ul>
+    <!--Esta es la seccion que se estará repitiendo-->
+    <li ng-repeat="numero in [1,2,3,4,5,6,7,8,9,10]">
+        2 X {{ numero }} = {{ 2*numero }}
+    </li>
+</ul>
