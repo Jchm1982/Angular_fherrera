@@ -190,3 +190,14 @@ Se tiene que crear nuestro campo select
 En este proceso la forma como se coloca $scope y http, se le conoce como inyeccion, debemos de utilizar las funciones de obtencion de datos externos usando el controlador http.Si se agrega otro tipo de inyeccionse debe colocardentro de las llaves[] y despues dentro () en la funcion.
 
 app.controller('mainCtrl', ['$scope','$http', function($scope,$http)
+
+
+		************* ng-include *************
+La instruccion del ng-include es de la siguiente manera:
+<div ng-include="string"></div>
+*En donde se encuentra el string, NO se coloca URL lo que se coloca es una VARIABLE.
+Para esto en nuestro ejemplo, la creamos en el archivo app.js.
+
+	$scope.tblProfesores = 'parciales/tblProfesores.html';
+
+Y la variable que vamos a tomar es tblProfesores.
