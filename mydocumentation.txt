@@ -154,7 +154,7 @@ Normal:
 	</li>
 </ul>
 
-CON ng-repeat:
+--CON ng-repeat:--
 
 <ul>
     <!--Esta es la seccion que se estará repitiendo-->
@@ -162,3 +162,31 @@ CON ng-repeat:
         2 X {{ numero }} = {{ 2*numero }}
     </li>
 </ul>
+
+		************* filtros ng-repeat *************
+
+Para aplicar los filtros se tiene que hacer un input de texto:
+
+<div class="row">
+	<input type="text" ng-model="busqueda" class="form-control" placeholder="Ingresa lo que desea Buscar">
+</div>
+
+A continuación lo que se tiene que hacer, donde esta nuestro ng-repeat y se coloca "|" colocando la leyenda filter:(lo que queremos filtrar, en este caso en en base a nuestra busqueda, que es el que est a arriba.)
+
+<tr ng-repeat="persona in personas | filter:busqueda">
+
+	************* ORDER BY con ng-repeat *************
+<tr ng-repeat="persona in personas | filter:busqueda | orderBy:'nombre' ">
+
+	************* ng-options *************
+
+Se tiene que crear nuestro campo select
+<select ng-model="paisSeleccionado" class="form-control" ng-options="pais.id as pais.nombre form pais in paises">
+	<option>Seleccione</option>
+</select>s
+
+		************* http - Request *************
+
+En este proceso la forma como se coloca $scope y http, se le conoce como inyeccion, debemos de utilizar las funciones de obtencion de datos externos usando el controlador http.Si se agrega otro tipo de inyeccionse debe colocardentro de las llaves[] y despues dentro () en la funcion.
+
+app.controller('mainCtrl', ['$scope','$http', function($scope,$http)
