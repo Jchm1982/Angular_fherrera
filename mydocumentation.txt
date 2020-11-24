@@ -206,3 +206,23 @@ NOTA: Para obtener información de recusos externos se utiliza $http.jsonp('se c
 
 });
 
+********************* SITIOS DINAMICOS ***********************
+
+Actualización del Angular Router 1.6.X o superior.
+Angular actualizó el router y su funcionamiento por defecto en un pequeño detalle que es importante aclarar.
+En la siguiente sección aprenderán como funciona esta librería que permite crear rutas en las aplicaciones en lugar de navegar fisicamente a otro URL.
+
+Por favor tomen nota de lo siguiente:
+Por defecto, ahora angular router agrega un signo de admiración "!" después del # así:
+localhost:8888/#!/pag2
+
+El único cambio que tendremos que hacer para navegar desde el HTML a otras rutas usando puntos de anclaje es el siguiente: (agregar después del #, el signo de admiración)
+
+<a href="#!/pag1">Ir a pagina 1</a>
+<a href="#!/pag2">Ir a pagina 2</a>
+
+Es el único cambio que deberemos agregar para poder seguir trabajando de forma normal.
+Para mayor detalle, he creado un ejemplo completo usando el router y la configuración necesaria
+
+********************* ng-route ***********************
+
