@@ -201,3 +201,8 @@ Para esto en nuestro ejemplo, la creamos en el archivo app.js.
 	$scope.tblProfesores = 'parciales/tblProfesores.html';
 
 Y la variable que vamos a tomar es tblProfesores.
+
+NOTA: Para obtener información de recusos externos se utiliza $http.jsonp('se coloca la url').success(function(data){
+
+});
+
