@@ -225,4 +225,28 @@ Es el único cambio que deberemos agregar para poder seguir trabajando de forma 
 Para mayor detalle, he creado un ejemplo completo usando el router y la configuración necesaria
 
 ********************* ng-route ***********************
+En la pagina de ANGULAR JS, cuando te vas a descargar en la vemtana de modulos adicionales.
+El angular Route debe de ir debajo de la libreria del angular, esto es en el INDEX.
+En el controlador app.js debemos colocar el NG-ROUTE dentro del controlador como el ejemplo:
 
+var app = angular.module('universidadApp',['ngRoute']);
+
+app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
+	$scope.menuSuperior = 'parciales/menu.html';
+
+}]);
+
+Se crea un archivo config.js, en la carpeta js, este archivo contiene la configuracion de movimiento entre paginas
+En ese archivo se realiza lo siguiente:
+$routeProvider->Parametro de argumento
+app.config(function($routeProvider){
+	$routeProvider
+		.when('/',{
+			templateUrl: 'parciales/hom.html'
+		})
+		.otherwise({
+			redirectTo: '/'
+		});
+
+});
+Se debe de incluir el archivo de configuracion a la pagina principal
