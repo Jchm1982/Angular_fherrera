@@ -252,3 +252,11 @@ app.config(function($routeProvider){
 Se debe de incluir el archivo de configuracion a la pagina principal.
 
 COLOCAR LOS CONTROLADORES
+
+============== PARA MANTENER CIERTA CANTIDAD DE REGISTROS EN UNA TABLA ==============
+El filtro que se utiliza es el limitTo:->Se coloca donde está el ng-repeat, ejemplo:
+		<tr ng-repeat="alumno in alumnos | limitTo:5
+
+>>>>>>>>>>>>>>>>>>>>>> HACER UNA ESPECIE DE PAGINACION <<<<<<<<<<<<<<<<<<<<<<<<
+
+************** ROUTE PARAMS **************
