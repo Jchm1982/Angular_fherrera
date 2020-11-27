@@ -249,4 +249,6 @@ app.config(function($routeProvider){
 		});
 
 });
-Se debe de incluir el archivo de configuracion a la pagina principal
+Se debe de incluir el archivo de configuracion a la pagina principal.
+
+COLOCAR LOS CONTROLADORES
